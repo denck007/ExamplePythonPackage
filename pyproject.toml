@@ -1,0 +1,42 @@
+[project]
+name = "ExamplePythonPackage"
+version = "0.0.0"
+description = "Basic setup for python package that has a command line interface"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  {email = "neil.e.dencklau@loram.com"},
+  {name = "Neil Dencklau"}
+]
+maintainers = [
+  {name = "Neil Dencklau", email = "neildencklau@gmail.com"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+dependencies = [
+    "click==8.1.3"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black==23.1.0",
+    "isort==5.12.0",
+    "pytest==7.1.3"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*"]
+
+[project.scripts]
+hello = "ExamplePythonPackage.Hello.hello_user:main"
+
+[build-system]
+requires = ["setuptools", "wheel", "twine"]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
